@@ -1,0 +1,32 @@
+created:
+    - app/Http/Controllers/AuthorController.php
+    - app/Http/Controllers/BookController.php
+    - app/Http/Controllers/ReviewController.php
+    - database/factories/AuthorFactory.php
+    - database/factories/BookFactory.php
+    - database/factories/ReviewFactory.php
+    - database/migrations/2025_06_30_093013_create_authors_table.php
+    - database/migrations/2025_06_30_093014_create_books_table.php
+    - database/migrations/2025_06_30_093015_create_reviews_table.php
+    - app/Models/Author.php
+    - app/Models/Book.php
+    - app/Models/Review.php
+    - tests/Feature/Http/Controllers/AuthorControllerTest.php
+    - tests/Feature/Http/Controllers/BookControllerTest.php
+    - tests/Feature/Http/Controllers/ReviewControllerTest.php
+    - app/Http/Requests/AuthorStoreRequest.php
+    - app/Http/Requests/BookStoreRequest.php
+    - app/Http/Requests/BookUpdateRequest.php
+    - app/Http/Requests/ReviewStoreRequest.php
+    - app/Http/Requests/ReviewUpdateRequest.php
+    - app/Http/Resources/BookCollection.php
+    - app/Http/Resources/BookResource.php
+    - app/Http/Resources/ReviewCollection.php
+    - app/Http/Resources/ReviewResource.php
+updated:
+    - routes/api.php
+    - routes/web.php
+models:
+    Author: { name: 'string:200', relationships: { hasMany: 'Book , Review' } }
+    Book: { title: 'string:200', description: text, author_id: 'id foreign', relationships: { belongsTo: Author, hasMany: Review } }
+    Review: { User_review: text, book_id: 'id foreign', author_id: 'id foreign', relationships: { belongsTo: 'Book , Author' } }

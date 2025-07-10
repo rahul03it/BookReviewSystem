@@ -1,0 +1,38 @@
+models:
+  # ...
+  Author:
+    name: string:200
+    password: string
+    relationships:
+      hasMany: Book , Review
+
+  Book:
+    title: string:200
+    description: text
+    author_id: id foreign
+
+    relationships:
+      belongsTo: Author
+      hasMany: Review
+
+  Review:
+    User_review: text
+    book_id: id foreign
+    author_id: id foreign
+
+    relationships:
+      belongsTo: Book , Author
+
+
+controllers:
+  # ...
+
+  Author:
+    resource: store , destroy
+
+  Book:
+    resource: api
+
+  Review:
+    resource: api
+
